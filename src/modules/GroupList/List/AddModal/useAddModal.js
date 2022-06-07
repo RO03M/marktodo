@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addGroup } from "../../../../helpers/localGroupManager";
+import { addGroup } from "../../../../actions/groupsAction";
 
 const useAddModal = () => {
 
@@ -9,9 +9,7 @@ const useAddModal = () => {
 
     const dispatch = useDispatch();
 
-    const handleAdd = () => {
-        dispatch({ type: "add", payload: { name, description } });
-    }
+    const handleAdd = () => dispatch(addGroup(name, description));
 
     const handleName = e => setName(e.target.value);
     const handleDescription = e => setDescription(e.target.value);

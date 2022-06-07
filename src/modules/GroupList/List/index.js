@@ -1,11 +1,10 @@
 import { Box, List, Fab, useTheme } from "@mui/material";
-import { listData } from "./data";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 import Board from "./Board";
 import AddIcon from '@mui/icons-material/Add';
-import { useEffect, useState } from "react";
 import AddModal from "./AddModal";
-import { useSelector } from "react-redux";
 
 const ListContainer = () => {
 
@@ -13,6 +12,8 @@ const ListContainer = () => {
 
     const theme = useTheme();
     const groups = useSelector(store => store.groups.groupList);
+
+    console.log(groups);
 
     return (
         <Box

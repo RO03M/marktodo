@@ -5,6 +5,7 @@ import Actions from "./Actions";
 const Board = props => {
 
     const {
+        id,
         name,
         itemKey
     } = props;
@@ -21,7 +22,9 @@ const Board = props => {
             <Typography>
                 {name}
             </Typography>
-            <Actions/>
+            <Actions
+                id={id}
+            />
         </ListItem>
     );
 }
