@@ -3,14 +3,16 @@ import { listData } from "./data";
 
 import Board from "./Board";
 import AddIcon from '@mui/icons-material/Add';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddModal from "./AddModal";
+import { useSelector } from "react-redux";
 
 const ListContainer = () => {
 
     const [modal, setModal] = useState(false);
 
     const theme = useTheme();
+    const groups = useSelector(store => store.groups.groupList);
 
     return (
         <Box
@@ -19,7 +21,7 @@ const ListContainer = () => {
                 margin: theme.spacing(2, 20)
             }}
         >
-            {listData?.map((item, itemKey) => (
+            {groups?.map((item, itemKey) => (
                 <Board
                     key={itemKey}
                     itemKey={itemKey}
