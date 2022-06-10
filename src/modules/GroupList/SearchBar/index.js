@@ -8,7 +8,10 @@ const SearchBar = () => {
         <Box
             sx={{
                 display: "flex",
-                margin: theme.spacing(2, 20)
+                margin: {
+                    xs: theme.spacing(2, 4),
+                    md: theme.spacing(2, 20)
+                }
             }}
         >
             <TextField

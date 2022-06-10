@@ -6,18 +6,34 @@ const initialState = {
 
 export const groupsReducer = (state = initialState, action) => {
     switch (action?.type) {
-        case "add":
+        case "addGroup":
             action.payload["id"] = v4();
             return {
                 ...state,
                 groupList: [...state.groupList, action?.payload]
             };
-        case "edit": {
-            const indexOfGroup = state.groupList.map(x => x?.id).indexOf(action?.payload?.id); 
+        case "editGroup": {
+            const indexOfGroup = state.groupList.map(x => x?.id).indexOf(action?.id);
+            const tempGroupList = [...state.groupList];
+            if (indexOfGroup !== -1) {
+                tempGroupList[indexOfGroup] = {
+                    id: action?.id,
+                    name: action?.name,
+                    description: action?.description
+                };
+            }
+            
             return {
-                ...state
+                ...state,
+                groupList: [...tempGroupList]
             };
         }
+        case "deleteGroup":
+            const groups = state.groupList.filter(x => x?.id !== action?.id);
+            return {
+                ...state,
+                groupList: groups
+            };
         default:
             return state;
     }

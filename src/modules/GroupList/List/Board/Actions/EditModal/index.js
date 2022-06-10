@@ -1,10 +1,11 @@
 import { Button, Dialog, DialogContent, DialogTitle, IconButton, TextField } from "@mui/material";
-import useAddModal from "./useAddModal";
+import useEditModal from "./useEditModal";
 import CloseIcon from "@mui/icons-material/Close";
 
-const AddModal = props => {
+const EditModal = props => {
 
     const {
+        initialData = {},
         onClose = () => {},
         ...others
     } = props;
@@ -15,8 +16,8 @@ const AddModal = props => {
         isFullscreen,
         handleDescription,
         handleName,
-        handleAdd
-    } = useAddModal();
+        handleEdit
+    } = useEditModal(initialData);
 
     return (
         <Dialog
@@ -31,7 +32,7 @@ const AddModal = props => {
                     alignItems: "center"
                 }}
             >
-                Adicionar grupo
+                Editar grupo
                 <IconButton
                     onClick={onClose}
                 >
@@ -63,13 +64,13 @@ const AddModal = props => {
                 <Button
                     color={"primary"}
                     variant={"contained"}
-                    onClick={handleAdd}
+                    onClick={handleEdit}
                 >
-                    Adicionar
+                    Salvar mudanças
                 </Button>
             </DialogContent>
         </Dialog>
     );
 }
 
-export default AddModal;
+export default EditModal;

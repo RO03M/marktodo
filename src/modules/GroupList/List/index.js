@@ -13,13 +13,14 @@ const ListContainer = () => {
     const theme = useTheme();
     const groups = useSelector(store => store.groups.groupList);
 
-    console.log(groups);
-
     return (
         <Box
             component={List}
             sx={{
-                margin: theme.spacing(2, 20)
+                margin: {
+                    xs: theme.spacing(2, 4),
+                    md: theme.spacing(2, 20)
+                }
             }}
         >
             {groups?.map((item, itemKey) => (

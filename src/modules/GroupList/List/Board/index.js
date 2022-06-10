@@ -7,6 +7,7 @@ const Board = props => {
     const {
         id,
         name,
+        description,
         itemKey
     } = props;
 
@@ -22,9 +23,10 @@ const Board = props => {
             <Typography>
                 {name}
             </Typography>
-            <Actions
-                id={id}
-            />
+            <Typography>
+                {description}
+            </Typography>
+            <Actions {...props}/>
         </ListItem>
     );
 }

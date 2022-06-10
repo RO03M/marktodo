@@ -1,17 +1,23 @@
 import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addGroup } from "../../../../actions/groupsAction";
+import { editGroup } from "../../../../../../actions/groupsAction";
 
-const useAddModal = () => {
+const useEditModal = props => {
 
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
+    const {
+        id,
+        name: initialName,
+        description: initialDescription
+    } = props;
+
+    const [name, setName] = useState(initialName);
+    const [description, setDescription] = useState(initialDescription);
 
     const dispatch = useDispatch();
     const isFullscreen = useMediaQuery(theme => theme.breakpoints.down("sm"));
 
-    const handleAdd = () => dispatch(addGroup(name, description));
+    const handleEdit = () => dispatch(editGroup(id, name, description));
 
     const handleName = e => setName(e.target.value);
     const handleDescription = e => setDescription(e.target.value);
@@ -22,8 +28,8 @@ const useAddModal = () => {
         isFullscreen,
         handleDescription,
         handleName,
-        handleAdd
+        handleEdit
     };
 }
 
-export default useAddModal;
+export default useEditModal;
