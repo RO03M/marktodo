@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteGroup, editGroup } from "../../../../../actions/groupsAction";
+import { deleteLesson } from "../../../../../actions/lessonsAction";
 import { DeleteButton, EditButton, ViewButton } from "../../../../../utils/buttons";
 import EditModal from "./EditModal";
 
@@ -28,7 +28,7 @@ const Actions = props => {
                 onClick={() => setModal(true)}
             />
             <DeleteButton
-                onClick={() => dispatch(deleteGroup(id))}
+                onClick={() => dispatch(deleteLesson(id))}
             />
             <EditModal
                 open={modal}

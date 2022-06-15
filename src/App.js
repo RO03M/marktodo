@@ -1,11 +1,13 @@
 import { Box } from "@mui/material";
 import GroupList from "./modules/GroupList";
+import RoutesContainer from "./routes/routes";
 
 const App = () => {
 	return (
-		<Box>
-			<GroupList/>
-		</Box>
+		// <Box>
+		// 	<GroupList/>
+		// </Box>
+		<RoutesContainer/>
 	);
 }
 

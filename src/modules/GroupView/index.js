@@ -1,9 +1,13 @@
 import { Box } from "@mui/material";
+import { useParams } from "react-router-dom";
 import Header from "../../common/Header";
 import ListContainer from "./List";
 import SearchBar from "./SearchBar";
 
-const GroupList = () => {
+const GroupView = () => {
+
+    const { groupId } = useParams();
+    
     return (
         <Box>
             <Header/>
@@ -20,4 +24,4 @@ const GroupList = () => {
     );
 }
 
-export default GroupList;
+export default GroupView;

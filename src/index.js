@@ -7,6 +7,7 @@ import { ThemeProvider } from '@mui/material';
 import { DEFAULT_THEME } from './utils/themes';
 import { Provider } from 'react-redux';
 import store from './app/store';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,9 @@ root.render(
       <ThemeProvider
         theme={DEFAULT_THEME}
       >
-        <App />
+        <BrowserRouter>
+          <App/>
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

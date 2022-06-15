@@ -2,7 +2,8 @@ import { ButtonBase } from "@mui/material";
 
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { red, yellow } from "@mui/material/colors";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { purple, red, yellow } from "@mui/material/colors";
 
 export const EditButton = props => {
 
@@ -45,6 +46,29 @@ export const DeleteButton = props => {
             }}
         >
             <DeleteIcon
+                fontSize={"small"}
+            />
+        </ButtonBase>
+    );
+}
+
+export const ViewButton = props => {
+
+    const {
+        ...others
+    } = props;
+
+    return (
+        <ButtonBase
+            {...others}
+            sx={{
+                padding: .5,
+                bgcolor: purple[600],
+                color: "#fff",
+                borderRadius: 1
+            }}
+        >
+            <VisibilityIcon
                 fontSize={"small"}
             />
         </ButtonBase>
