@@ -1,10 +1,16 @@
-import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import GroupList from "../modules/GroupList";
 import GroupView from "../modules/GroupView";
 import Login from "../modules/Login";
 import Register from "../modules/Register";
 
 const RoutesContainer = () => {
+
+    const navigate = useNavigate();
+
+    useEffect(() => (localStorage.getItem("loggedOnce") === null) ? navigate("/login") : () => {}, []);
+
     return (
         <Routes>
             <Route

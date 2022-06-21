@@ -1,13 +1,14 @@
-import { Box } from "@mui/material";
-import GroupList from "./modules/GroupList";
 import RoutesContainer from "./routes/routes";
+import { Helmet } from "react-helmet";
 
 const App = () => {
 	return (
-		// <Box>
-		// 	<GroupList/>
-		// </Box>
-		<RoutesContainer/>
+		<>
+			<Helmet
+				title={"Marktodo"}
+			/>
+			<RoutesContainer/>
+		</>
 	);
 }
 

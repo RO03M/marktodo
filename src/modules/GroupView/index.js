@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Header from "../../common/Header";
 import ListContainer from "./List";
 import SearchBar from "./SearchBar";
@@ -10,6 +11,9 @@ const GroupView = () => {
     
     return (
         <Box>
+            <Helmet
+                title={"Marktodo - Tarefas"}
+            />
             <Header/>
             <Box
                 sx={{

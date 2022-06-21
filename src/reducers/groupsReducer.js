@@ -1,13 +1,14 @@
 import { v4 } from "uuid";
 
 const initialState = {
-    groupList: []
+    groupList: JSON.parse(localStorage.getItem("groupList")) ?? []
 };
 
 export const groupsReducer = (state = initialState, action) => {
     switch (action?.type) {
         case "addGroup":
             action.payload["id"] = v4();
+            localStorage.setItem("groupList", JSON.stringify([...state.groupList, action?.payload]));
             return {
                 ...state,
                 groupList: [...state.groupList, action?.payload]
@@ -23,6 +24,8 @@ export const groupsReducer = (state = initialState, action) => {
                 };
             }
             
+            localStorage.setItem("groupList", JSON.stringify([...tempGroupList]));
+
             return {
                 ...state,
                 groupList: [...tempGroupList]
@@ -30,6 +33,9 @@ export const groupsReducer = (state = initialState, action) => {
         }
         case "deleteGroup":
             const groups = state.groupList.filter(x => x?.id !== action?.id);
+
+            localStorage.setItem("groupList", JSON.stringify(groups));
+
             return {
                 ...state,
                 groupList: groups

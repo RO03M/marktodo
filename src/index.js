@@ -8,6 +8,7 @@ import { DEFAULT_THEME } from './utils/themes';
 import { Provider } from 'react-redux';
 import store from './app/store';
 import { BrowserRouter } from 'react-router-dom';
+import { AnimatePresence } from "framer-motion";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,7 +20,7 @@ root.render(
         theme={DEFAULT_THEME}
       >
         <BrowserRouter>
-          <App/>
+            <App/>
         </BrowserRouter>
       </ThemeProvider>
     </Provider>

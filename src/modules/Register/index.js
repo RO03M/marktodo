@@ -1,5 +1,8 @@
 import { Box, ButtonBase, Card, CardContent, TextField, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import background from "./assets/background.svg";
+import logo from "./assets/logo.png";
 
 const Register = () => {
 
@@ -12,11 +15,30 @@ const Register = () => {
                 height: "100vh",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
+                backgroundSize: "cover",
+                backgroundImage: `url(${background})`
             }}
         >
+            <Helmet
+                title={"Marktodo - Cadastro"}
+            />
             <Card
                 raised
+                sx={{
+                    width: {
+                        xs: "100%",
+                        sm: "fit-content"
+                    },
+                    height: {
+                        xs: "100%",
+                        sm: "fit-content"
+                    },
+                    borderRadius: {
+                        xs: 0,
+                        sm: "inherit"
+                    }
+                }}
             >
                 <CardContent
                     sx={{
@@ -25,10 +47,25 @@ const Register = () => {
                         flexDirection: "column",
                         padding: 5,
                         "& > *": {
-                            m: 1
+                            m: "4px !important"
                         }
                     }}
                 >
+                    <Box
+                        sx={{
+                            display: "inline-flex",
+                            alignItems: "center"
+                        }}
+                    >
+                        <img
+                            src={logo}
+                            width={"40"}
+                            height={"40"}
+                        />
+                        <Typography>
+                            <strong>Marktodo</strong>
+                        </Typography>
+                    </Box>
                     <Typography
                         variant={"h5"}
                     >

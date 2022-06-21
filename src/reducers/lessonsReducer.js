@@ -1,13 +1,14 @@
 import { v4 } from "uuid";
 
 const INITIAL_STATE = {
-    lessonsList: []
+    lessonsList: JSON.parse(localStorage.getItem("lessonList")) ?? []
 };
 
 export const lessonsReducer = (state = INITIAL_STATE, action) => {
     switch(action?.type) {
         case "addLesson":
             action.payload["id"] = v4();
+            localStorage.setItem("lessonList", JSON.stringify([...state.lessonsList, action?.payload]));
             return {
                 ...state,
                 lessonsList: [...state.lessonsList, action?.payload]
@@ -25,6 +26,8 @@ export const lessonsReducer = (state = INITIAL_STATE, action) => {
                 };
             }
             
+            localStorage.setItem("lessonList", JSON.stringify([...tempLessonsList]));
+
             return {
                 ...state,
                 lessonsList: [...tempLessonsList]
@@ -32,6 +35,7 @@ export const lessonsReducer = (state = INITIAL_STATE, action) => {
         }
         case "deleteLesson":
             const groups = state.lessonsList.filter(x => x?.id !== action?.id);
+            localStorage.setItem("lessonList", JSON.stringify(groups));
             return {
                 ...state,
                 lessonsList: groups

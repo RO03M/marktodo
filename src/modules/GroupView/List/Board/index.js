@@ -1,5 +1,5 @@
 import { Checkbox, ListItem, Typography } from "@mui/material";
-
+import { motion } from "framer-motion";
 import Actions from "./Actions";
 
 const Board = props => {
@@ -8,7 +8,7 @@ const Board = props => {
         id,
         name,
         description,
-        itemKey
+        itemKey,
     } = props;
 
     return (

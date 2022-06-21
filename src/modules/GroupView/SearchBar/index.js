@@ -16,6 +16,7 @@ const SearchBar = () => {
         >
             <TextField
                 label={"Pesquisar por tarefas"}
+                size={"small"}
                 sx={{
                     flex: 1
                 }}

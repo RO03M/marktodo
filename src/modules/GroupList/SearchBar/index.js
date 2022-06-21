@@ -16,6 +16,7 @@ const SearchBar = () => {
         >
             <TextField
                 label={"Pesquisar por grupos"}
+                size={"small"}
                 sx={{
                     flex: 1
                 }}
